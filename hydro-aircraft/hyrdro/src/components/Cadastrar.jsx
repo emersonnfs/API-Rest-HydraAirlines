@@ -3,21 +3,15 @@ import { useState } from "react";
 
 export default function Cadastrar() {
 
-    const [telefone , setTelefone] = useState({
-            ddi: "",
-            ddd: "",
-            nrTel: ""
-    });
-
-    const addTelefone = () => {
-        setTelefone([...telefone, { ddi: "", ddd: "", nrTel: "" }]);
-    };
-
     const [cliente, setCliente] = useState({
         nome: "",
         data: "",
         email: "",
-        telefone: [telefone]
+        telefone: [{
+            ddi: "",
+            ddd: "",
+            nrTel: ""
+        }]
     });
 
     const handleChanges = (event) => {
@@ -84,8 +78,8 @@ export default function Cadastrar() {
                                         name="ddi" 
                                         id="ddi" 
                                         placeholder="DDI" 
-                                        value={telefone.ddi} 
-                                        onChange={addTelefone} />
+                                        value={cliente.telefone.ddi} 
+                                        onChange={handleChanges} />
                             </div>
                             <div>
                                 <label htmlFor="ddd">DDD</label>
@@ -93,8 +87,8 @@ export default function Cadastrar() {
                                     name="ddd" 
                                         id="ddd" 
                                         placeholder="DDD" 
-                                        value={telefone.ddd} 
-                                        onChange={addTelefone} />
+                                        value={cliente.telefone.ddd} 
+                                        onChange={handleChanges} />
                             </div>
                             <div>
                                 <label htmlFor="nrTel">Telefone</label>
@@ -102,8 +96,8 @@ export default function Cadastrar() {
                                     name="nrTel" 
                                     id="nrTel" 
                                     placeholder="Telefone" 
-                                    value={telefone.nrTel} 
-                                    onChange={addTelefone} />
+                                    value={cliente.telefone.nrTel} 
+                                    onChange={handleChanges} />
                             </div>
                         </fieldset>
                         <button>Cadastrar</button>
